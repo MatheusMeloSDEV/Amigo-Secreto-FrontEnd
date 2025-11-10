@@ -11,38 +11,46 @@ async function fetchParticipantes() {
   const participantes = await res.json();
   const ul = document.getElementById('participantes');
   ul.innerHTML = '';
-  const urlBase = 'https://amigo-secreto-frontend-4pzo.onrender.com/painel-participante.html'; 
+  const urlBase = 'https://amigo-secreto-frontend-4pzo.onrender.com/painel-participante.html'; // ajuste conforme necessário
 
   participantes.forEach(p => {
     const li = document.createElement('li');
-    if (p.assigned) {
-      // Nome é um link direto
-      const link = document.createElement('a');
-      link.href = `${urlBase}?nome=${encodeURIComponent(p.name)}`;
-      link.textContent = p.name;
-      link.target = "_blank";
-      link.style.marginRight = "12px";
-      li.appendChild(link);
+    li.style.display = "flex";
+    li.style.alignItems = "center";
+    li.style.marginBottom = "10px";
 
-      // Ícone ou botão copiar (pequeno, ao lado)
+    // Nome como link
+    const link = document.createElement('a');
+    link.href = `${urlBase}?nome=${encodeURIComponent(p.name)}`;
+    link.textContent = p.name;
+    link.target = "_blank";
+    link.style.fontWeight = "bold";
+    link.style.flex = "1";
+    li.appendChild(link);
+
+    // Ícone de copiar (estilizado pequeno, minimalista)
+    if (p.assigned) {
       const copyBtn = document.createElement('button');
-      copyBtn.textContent = '🔗'; // Ícone minimalista
-      copyBtn.style.padding = "4px 10px";
-      copyBtn.style.borderRadius = "5px";
+      copyBtn.innerHTML = '🔗'; // Ou use '<svg>' se quiser SVG
+      copyBtn.title = "Copiar link";
+      copyBtn.style.fontSize = "1rem";
+      copyBtn.style.padding = "2px 6px";
+      copyBtn.style.marginLeft = "6px";
+      copyBtn.style.background = "transparent";
       copyBtn.style.border = "none";
-      copyBtn.style.background = "#f0f0f0";
+      copyBtn.style.cursor = "pointer";
+      copyBtn.style.transition = "color .2s";
       copyBtn.onclick = () => {
         navigator.clipboard.writeText(link.href);
-        copyBtn.textContent = '✔️';
-        setTimeout(() => copyBtn.textContent = '🔗', 1200);
+        copyBtn.innerHTML = '✔️';
+        setTimeout(() => copyBtn.innerHTML = '🔗', 1400);
       };
       li.appendChild(copyBtn);
-    } else {
-      li.textContent = p.name;
     }
     ul.appendChild(li);
   });
 }
+
 
 
 
