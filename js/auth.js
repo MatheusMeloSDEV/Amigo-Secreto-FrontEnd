@@ -1,6 +1,6 @@
 // js/auth.js
 
-const API = 'https://amigo-secreto-backend-md1k.onrender.com';
+const API = 'https://amigo-secreto-backend-md1k.onrender.com/api';
 
 document.getElementById('loginForm').onsubmit = async (e) => {
   e.preventDefault();
