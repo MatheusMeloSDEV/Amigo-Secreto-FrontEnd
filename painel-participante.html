@@ -2,21 +2,35 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Ver Amigo Secreto</title>
+  <title>Revelar Amigo Secreto</title>
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/see.js"></script>
+  <style>
+    .card { 
+      background: #fff; 
+      max-width: 370px; 
+      border-radius: 16px; 
+      box-shadow: 0 4px 20px #0001; 
+      padding: 38px 32px; 
+      text-align: center; 
+      margin: 60px auto 0 auto;
+    }
+    input, button { margin: 8px 0; padding: 10px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; }
+    button { background: #fa8231; color: #fff; border: none; cursor: pointer; font-weight: bold; transition: background .15s; }
+    button:hover { background: #f76b1c; }
+    h1 { color: #f76b1c; margin-bottom: 20px;}
+    #amigo { margin-top: 24px; font-size: 1.3rem; font-weight: bold; color: #35a752;}
+  </style>
 </head>
 <body>
   <div class="card">
-    <h1>Seu Amigo Secreto</h1>
+    <h1>Revelar Amigo Secreto 🎁</h1>
     <form id="seeForm">
-      <input name="nome" placeholder="Seu nome" required>
-      <button type="submit">Ver amigo secreto</button>
+      <input name="nome" placeholder="Digite seu nome..." required>
+      <button type="submit">Revelar Amigo Secreto</button>
     </form>
-    <h2 id="amigo"></h2>
+    <div id="amigo"></div>
     <p id="seeError" style="color: red;"></p>
-    <hr>
-    <a href="index.html">Voltar</a>
   </div>
 </body>
 </html>

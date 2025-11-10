@@ -1,17 +1,16 @@
-// js/ver.js
 const API = 'https://amigo-secreto-backend-md1k.onrender.com/api';
-const params = new URLSearchParams(window.location.search);
-const nome = params.get('nome');
-if (nome) {
-  fetch(`${API}/participant/${encodeURIComponent(nome)}`)
-    .then(res => res.json())
-    .then(json => {
-      if (json.assigned) {
-        document.getElementById('amigo').textContent = `Você tirou: ${json.assigned}`;
-      } else {
-        document.getElementById('amigo').textContent = json.error || 'Nome não encontrado ou sorteio não realizado!';
-      }
-    });
-} else {
-  document.getElementById('amigo').textContent = 'Nome não informado!';
-}
+
+document.getElementById('seeForm').onsubmit = async (e) => {
+  e.preventDefault();
+  const nome = e.target.nome.value;
+  document.getElementById('amigo').textContent = '';
+  document.getElementById('seeError').textContent = '';
+  
+  const res = await fetch(`${API}/participant/${encodeURIComponent(nome)}`);
+  const json = await res.json();
+  if (json.assigned) {
+    document.getElementById('amigo').textContent = `Você tirou: ${json.assigned} 🎉`;
+  } else {
+    document.getElementById('seeError').textContent = json.error || 'Nome não encontrado ou sorteio não realizado!';
+  }
+};
