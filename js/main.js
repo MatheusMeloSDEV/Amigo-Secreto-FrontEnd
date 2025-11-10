@@ -1,6 +1,6 @@
 // js/main.js
 
-const API = 'http://localhost:4000/api';
+const API = 'https://amigo-secreto-backend-md1k.onrender.com/api';
 const token = localStorage.getItem('token');
 if (!token) window.location = 'index.html';
 
