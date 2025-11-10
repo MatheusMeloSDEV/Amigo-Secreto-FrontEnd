@@ -57,9 +57,9 @@ ul#participantes li {
   padding: 0;            /* ou um padding menor, exemplo: 2px 8px */
 }
 ul#participantes a {
-  flex: 1;
   font-weight: bold;
   color: #f76b1c;
   text-decoration: none;
   padding-right: 6px;
+  min-width: 0;
 }
