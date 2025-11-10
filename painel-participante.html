@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Revelar Amigo Secreto</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/see.js"></script>
+  <script defer src="js/revelar.js"></script>
   <style>
     .card { 
       background: #fff; 
@@ -15,20 +15,18 @@
       text-align: center; 
       margin: 60px auto 0 auto;
     }
-    input, button { margin: 8px 0; padding: 10px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; }
-    button { background: #fa8231; color: #fff; border: none; cursor: pointer; font-weight: bold; transition: background .15s; }
-    button:hover { background: #f76b1c; }
-    h1 { color: #f76b1c; margin-bottom: 20px;}
+    button { margin: 28px 0 8px 0; padding: 12px; font-size: 1.1rem; border-radius: 8px; border: none; background: #fa8231; color: #fff; font-weight: bold; transition: background .15s; cursor: pointer; }
+    button:hover { background: #f76b1c;}
+    h1 { color: #f76b1c; margin-bottom: 14px;}
     #amigo { margin-top: 24px; font-size: 1.3rem; font-weight: bold; color: #35a752;}
+    #nomeinfo { color:#555; font-size:1.15rem; margin-bottom:8px;}
   </style>
 </head>
 <body>
   <div class="card">
     <h1>Revelar Amigo Secreto 🎁</h1>
-    <form id="seeForm">
-      <input name="nome" placeholder="Digite seu nome..." required>
-      <button type="submit">Revelar Amigo Secreto</button>
-    </form>
+    <div id="nomeinfo"></div>
+    <button id="revelarBtn">Revelar Amigo Secreto</button>
     <div id="amigo"></div>
     <p id="seeError" style="color: red;"></p>
   </div>

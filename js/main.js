@@ -31,7 +31,8 @@ async function fetchParticipantes() {
     // Ícone de copiar (estilizado pequeno, minimalista)
     if (p.assigned) {
       const copyBtn = document.createElement('button');
-      copyBtn.innerHTML = '🔗'; // Ou use '<svg>' se quiser SVG
+      copyBtn.className = "copy-btn"; // classe específica!
+      copyBtn.innerHTML = '🔗';
       copyBtn.title = "Copiar link";
       copyBtn.style.fontSize = "1rem";
       copyBtn.style.padding = "2px 6px";
