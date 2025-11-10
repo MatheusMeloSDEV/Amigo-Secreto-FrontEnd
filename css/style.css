@@ -1,0 +1,18 @@
+body {
+  background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0; padding: 0;
+  display: flex; justify-content: center; align-items: center;
+}
+.card {
+  background: #fff;
+  max-width: 370px; border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 40px 32px; text-align: center;
+}
+input { width: 80%; font-size: 1rem; padding: 8px; border-radius: 6px; border: 1px solid #ccc; margin: 10px 0;}
+button { background: #fa8231; color: #fff; font-weight: bold; border: none; border-radius: 8px; padding: 10px 0; width: 180px; margin: 14px auto;}
+a { color: #fa8231; text-decoration: none; font-weight: bold; }
+ul { list-style: none; margin: 0; padding: 0;}
+li { margin-bottom: 8px; }
