@@ -1,17 +1,25 @@
-// js/see.js
+const API = 'https://amigo-secreto-backend-md1k.onrender.com/api';
 
-const API = 'http://localhost:4000/api';
+window.onload = () => {
+  const params = new URLSearchParams(window.location.search);
+  const nome = params.get('nome');
 
-document.getElementById('seeForm').onsubmit = async (e) => {
-  e.preventDefault();
-  const nome = e.target.nome.value;
-  const res = await fetch(`${API}/participant/${encodeURIComponent(nome)}`);
-  const json = await res.json();
-  if (json.assigned) {
-    document.getElementById('amigo').textContent = `Você tirou: ${json.assigned}`;
-    document.getElementById('seeError').textContent = '';
+  if (nome) {
+    fetch(`${API}/participant/${encodeURIComponent(nome)}`)
+      .then(res => res.json())
+      .then(json => {
+        if (json.assigned) {
+          document.getElementById('amigo').textContent = `Você tirou: ${json.assigned}`;
+          document.getElementById('seeError').textContent = '';
+        } else {
+          document.getElementById('amigo').textContent = '';
+          document.getElementById('seeError').textContent = json.error || 'Nome não encontrado ou sorteio não realizado!';
+        }
+      })
+      .catch(() => {
+        document.getElementById('seeError').textContent = 'Erro ao conectar à API.';
+      });
   } else {
-    document.getElementById('amigo').textContent = '';
-    document.getElementById('seeError').textContent = json.error || 'Nome não encontrado ou sorteio não realizado!';
+    document.getElementById('seeError').textContent = 'Nome não informado na URL!';
   }
 };

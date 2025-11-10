@@ -11,12 +11,33 @@ async function fetchParticipantes() {
   const participantes = await res.json();
   const ul = document.getElementById('participantes');
   ul.innerHTML = '';
+  const urlBase = 'https://amigo-secreto-frontend-4pzo.onrender.com'; 
+  
   participantes.forEach(p => {
     const li = document.createElement('li');
-    li.textContent = p.name + (p.assigned ? ` ➔ ${p.assigned}` : '');
+    if (p.assigned) {
+      const link = document.createElement('a');
+      link.href = `${urlBase}?nome=${encodeURIComponent(p.name)}`;
+      link.textContent = `${p.name} 🔗`;
+      link.target = "_blank";
+      li.appendChild(link);
+
+      // Botão copiar link
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copiar Link';
+      copyBtn.onclick = () => {
+        navigator.clipboard.writeText(link.href);
+        copyBtn.textContent = 'Copiado!';
+        setTimeout(() => copyBtn.textContent = 'Copiar Link', 1500);
+      };
+      li.appendChild(copyBtn);
+    } else {
+      li.textContent = p.name;
+    }
     ul.appendChild(li);
   });
 }
+
 
 document.getElementById('nomeForm').onsubmit = async (e) => {
   e.preventDefault();
