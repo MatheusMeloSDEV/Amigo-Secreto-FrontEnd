@@ -11,24 +11,30 @@ async function fetchParticipantes() {
   const participantes = await res.json();
   const ul = document.getElementById('participantes');
   ul.innerHTML = '';
-  const urlBase = 'https://amigo-secreto-frontend-4pzo.onrender.com'; 
-  
+  const urlBase = 'https://amigo-secreto-frontend-4pzo.onrender.com/painel-participante.html'; 
+
   participantes.forEach(p => {
     const li = document.createElement('li');
     if (p.assigned) {
+      // Nome é um link direto
       const link = document.createElement('a');
       link.href = `${urlBase}?nome=${encodeURIComponent(p.name)}`;
-      link.textContent = `${p.name} 🔗`;
+      link.textContent = p.name;
       link.target = "_blank";
+      link.style.marginRight = "12px";
       li.appendChild(link);
 
-      // Botão copiar link
+      // Ícone ou botão copiar (pequeno, ao lado)
       const copyBtn = document.createElement('button');
-      copyBtn.textContent = 'Copiar Link';
+      copyBtn.textContent = '🔗'; // Ícone minimalista
+      copyBtn.style.padding = "4px 10px";
+      copyBtn.style.borderRadius = "5px";
+      copyBtn.style.border = "none";
+      copyBtn.style.background = "#f0f0f0";
       copyBtn.onclick = () => {
         navigator.clipboard.writeText(link.href);
-        copyBtn.textContent = 'Copiado!';
-        setTimeout(() => copyBtn.textContent = 'Copiar Link', 1500);
+        copyBtn.textContent = '✔️';
+        setTimeout(() => copyBtn.textContent = '🔗', 1200);
       };
       li.appendChild(copyBtn);
     } else {
@@ -37,6 +43,7 @@ async function fetchParticipantes() {
     ul.appendChild(li);
   });
 }
+
 
 
 document.getElementById('nomeForm').onsubmit = async (e) => {
