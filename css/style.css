@@ -41,11 +41,20 @@ li { margin-bottom: 8px; }
   color: #35a752;
   outline: none;
 }
-
+ul#participantes {
+  padding: 0;
+  margin: 0;
+  width: auto;       /* Não força largura */
+}
 ul#participantes li {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin-bottom: 10px;
+  min-width: 0;
+  width: auto;           /* ou max-width: 100%; */
+  box-sizing: border-box;
+  background: none;
+  padding: 0;            /* ou um padding menor, exemplo: 2px 8px */
 }
 ul#participantes a {
   flex: 1;
