@@ -7,19 +7,35 @@
   <script defer src="js/main.js"></script>
 </head>
 <body>
-  <div class="card">
-    <h1>Painel do Organizador</h1>
-    <form id="nomeForm">
-      <input name="nome" placeholder="Nome do participante" required>
-      <button type="submit">Adicionar Participante</button>
-    </form>
-    <p id="nomeError" style="color: red;"></p>
-    <h2>Lista de Participantes</h2>
-    <ul id="participantes"></ul>
-    <button id="sortearBtn">Sortear Amigo Secreto</button>
-    <p id="sorteioResult" style="color: green;"></p>
-    <hr>
-    <a href="index.html">Sair</a>
+  <div class="main-wrap">
+    <div class="card">
+      <h1>Painel do Organizador</h1>
+      <form id="nomeForm" style="margin-bottom:0">
+        <input name="nome" placeholder="Nome do participante" required>
+        <button type="submit">Adicionar Participante</button>
+      </form>
+      <div class="section-title">Lista de Participantes</div>
+      <div class="participantes-wrap">
+        <ul id="participantes"></ul>
+        <div id="no-part-msg" class="no-participants" style="display:none;">Nenhum participante adicionado ainda.</div>
+      </div>
+      <button id="sortearBtn" style="margin-top:17px;">Sortear Amigo Secreto</button>
+      <hr style="margin:30px 0;width:97%;border:1px solid #eee;">
+      <a href="index.html">Sair</a>
+    </div>
+    <div class="help-card">
+      <div class="help-title">Como funciona?</div>
+      <ul>
+        <li>Adicione os participantes usando o campo acima.</li>
+        <li>Após todos adicionados, clique em <b>Sortear Amigo Secreto</b>.<br>Os links de cada participante aparecerão ao lado do nome.</li>
+        <li>Use o ícone de link para copiar e enviar a cada pessoa no WhatsApp.</li>
+        <li>Cada participante deve acessar o link para descobrir <b>somente quem tirou</b>.</li>
+        <li>O painel e a lista são visíveis somente para o organizador (quem fez login).</li>
+      </ul>
+      <div style="margin-top:11px;font-size:.98rem;color:#c77a51;">
+        Dica: Sempre use nomes únicos e avisar todos para guardar o link!
+      </div>
+    </div>
   </div>
 </body>
 </html>
