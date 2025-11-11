@@ -1,21 +1,17 @@
-// js/auth.js
-
 const API = 'https://amigo-secreto-backend-md1k.onrender.com/api';
-
-document.getElementById('loginForm').onsubmit = async (e) => {
+document.getElementById('registerForm').onsubmit = async (e) => {
   e.preventDefault();
   const username = e.target.username.value;
   const password = e.target.password.value;
-  const res = await fetch(`${API}/auth/login`, {
+  const res = await fetch(`${API}/auth/register`, {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({ username, password })
   });
   const json = await res.json();
-  if (json.token) {
-    localStorage.setItem('token', json.token);
-    window.location = 'painel-organizador.html';
+  if (json.success) {
+    document.getElementById('registerError').textContent = 'Cadastro realizado! Você já pode fazer login.';
   } else {
-    document.getElementById('loginError').textContent = json.error || 'Falha no login';
+    document.getElementById('registerError').textContent = json.error || 'Falha no cadastro';
   }
 };

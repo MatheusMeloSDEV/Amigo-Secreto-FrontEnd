@@ -7,22 +7,16 @@
   <script defer src="js/auth.js"></script>
 </head>
 <body>
-  <div class="card">
+  <div class="card login">
     <h1>Entrar</h1>
     <form id="loginForm">
       <input name="username" placeholder="Usuário" required>
       <input name="password" type="password" placeholder="Senha" required>
-      <button type="submit">Entrar</button>
+      <button type="submit" class="main-btn">Entrar</button>
     </form>
     <p id="loginError" style="color: red;"></p>
     <hr>
-    <h2>Cadastrar</h2>
-    <form id="registerForm">
-      <input name="username" placeholder="Novo usuário" required>
-      <input name="password" type="password" placeholder="Senha" required>
-      <button type="submit">Cadastrar</button>
-    </form>
-    <p id="registerError" style="color: red;"></p>
+    <a href="cadastro.html" style="display:block;margin-top:18px;color:#fa8231;font-weight:bold;">Quero me cadastrar</a>
   </div>
 </body>
 </html>
