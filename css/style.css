@@ -35,7 +35,7 @@ body {
 .card {
   background: #fff;
   width: 85vw;
-  max-width: 340px;
+  max-width: 500px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   padding: 32px 20px;
@@ -116,7 +116,7 @@ button:not(.copy-btn) {
   margin: 16px auto;
   cursor: pointer;
   transition: background 0.15s;
-  width: 200px;
+  width: 300px;
   max-width: 90%;
 }
 
@@ -282,7 +282,7 @@ ul#participantes a {
    ============================================ */
 .help-card {
   background: #fff7ef;
-  width: 330px;
+  width: 500px;
   max-width: 97vw;
   border-radius: 14px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
@@ -372,7 +372,7 @@ hr {
   .card {
     order: 2;
     width: 90vw;
-    max-width: 380px;
+    max-width: 500px;
     margin: 16px auto;          /* ADICIONE ISTO - top/bottom 16px, left/right auto */
   }
 
